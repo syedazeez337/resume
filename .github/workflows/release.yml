@@ -1,0 +1,101 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX - Default
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: src
+          root_file: resume.tex
+          args: -pdf -interaction=nonstopmode -output-directory=../output
+
+      - name: Compile LaTeX - Classic Theme
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: src
+          root_file: resume.tex
+          args: -pdf -interaction=nonstopmode -output-directory=../output -jobname=resume-classic
+          pre_compile: |
+            sed -i 's|% \\loadtheme{classic}|\\loadtheme{classic}|' resume.tex
+
+      - name: Compile LaTeX - Modern Theme
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: src
+          root_file: resume.tex
+          args: -pdf -interaction=nonstopmode -output-directory=../output -jobname=resume-modern
+          pre_compile: |
+            sed -i 's|\\loadtheme{classic}|% \\loadtheme{classic}|' resume.tex
+            sed -i 's|% \\loadtheme{modern}|\\loadtheme{modern}|' resume.tex
+
+      - name: Compile LaTeX - Minimal Theme
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: src
+          root_file: resume.tex
+          args: -pdf -interaction=nonstopmode -output-directory=../output -jobname=resume-minimal
+          pre_compile: |
+            sed -i 's|\\loadtheme{modern}|% \\loadtheme{modern}|' resume.tex
+            sed -i 's|% \\loadtheme{minimal}|\\loadtheme{minimal}|' resume.tex
+
+      - name: Compile LaTeX - ATS Optimized
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: src
+          root_file: resume.tex
+          args: -pdf -interaction=nonstopmode -output-directory=../output -jobname=resume-ats
+          pre_compile: |
+            sed -i 's|% \\enableatsmode|\\enableatsmode|' resume.tex
+
+      - name: Install Pandoc
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc
+
+      - name: Generate DOCX
+        run: |
+          pandoc src/resume.tex -o output/resume.docx || echo "DOCX generation skipped"
+
+      - name: Get version from tag
+        id: version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: Resume ${{ steps.version.outputs.VERSION }}
+          body: |
+            ## Resume Release ${{ steps.version.outputs.VERSION }}
+
+            ### Downloads
+            - **resume.pdf** - Default styling
+            - **resume-classic.pdf** - Classic blue theme
+            - **resume-modern.pdf** - Modern dark theme
+            - **resume-minimal.pdf** - Minimal grayscale theme
+            - **resume-ats.pdf** - ATS-optimized version
+            - **resume.docx** - Word document format
+
+            ### Changes
+            See commit history for details.
+          files: |
+            output/resume.pdf
+            output/resume-classic.pdf
+            output/resume-modern.pdf
+            output/resume-minimal.pdf
+            output/resume-ats.pdf
+            output/resume.docx
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

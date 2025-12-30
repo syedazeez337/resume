@@ -1,0 +1,36 @@
+%% theme.sty - Classic Theme
+%% Professional blue color scheme with traditional styling
+
+%% Color palette
+\definecolor{primary}{HTML}{1A365D}      % Dark navy blue
+\definecolor{secondary}{HTML}{4A5568}    % Slate gray
+\definecolor{accent}{HTML}{2B6CB0}       % Professional blue
+\definecolor{text}{HTML}{2D3748}         % Dark gray text
+\definecolor{lightgray}{HTML}{EDF2F7}    % Light background
+
+%% Typography adjustments
+\RequirePackage{charter}                  % Serif font for classic look
+
+%% Section styling - traditional underline
+\titleformat{\section}{
+    \Large\bfseries\color{primary}
+}{}{0em}{}[\color{accent}\titlerule]
+
+%% Hyperlink styling
+\hypersetup{
+    colorlinks=true,
+    linkcolor=accent,
+    urlcolor=accent
+}
+
+%% Adjust margins for traditional look
+\geometry{margin=0.6in}
+
+%% Custom header styling for classic theme
+\renewcommand{\name}[1]{
+    {\Huge\bfseries\color{primary}#1}
+}
+
+\renewcommand{\tagline}[1]{
+    {\large\itshape\color{secondary}#1}
+}

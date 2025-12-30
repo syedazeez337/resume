@@ -1,0 +1,46 @@
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.bbl
+*.blg
+*.nav
+*.snm
+*.vrb
+
+# Temporary files
+*.tmp
+*~
+\#*\#
+.\#*
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Local output (CI/CD will commit these)
+# Uncomment if you don't want PDFs in repo
+# output/
+
+# Node modules (if using any JS tools)
+node_modules/
+
+# Python virtual environment
+venv/
+__pycache__/
+*.pyc
+
+# Backup files
+*.bak
+*.backup

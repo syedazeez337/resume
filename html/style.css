@@ -1,0 +1,307 @@
+/* Resume Web Stylesheet */
+/* Responsive CSS for HTML version and GitHub Pages */
+
+:root {
+    --primary: #1a365d;
+    --secondary: #4a5568;
+    --accent: #3182ce;
+    --text: #2d3748;
+    --background: #ffffff;
+    --light-gray: #f7fafc;
+    --border: #e2e8f0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background-color: var(--light-gray);
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    color: white;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Main content */
+main {
+    background: var(--background);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+}
+
+/* Sections */
+section {
+    margin-bottom: 2rem;
+}
+
+section:last-child {
+    margin-bottom: 0;
+}
+
+h2 {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent);
+}
+
+h3 {
+    color: var(--text);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Download section */
+.download-section {
+    text-align: center;
+    padding: 2rem;
+    background: var(--light-gray);
+    border-radius: 8px;
+}
+
+.download-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(49, 130, 206, 0.4);
+}
+
+.btn-secondary {
+    background-color: var(--secondary);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: var(--text);
+}
+
+/* Preview section */
+.preview-section {
+    margin-top: 2rem;
+}
+
+.preview-section iframe {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+}
+
+/* Resume content styling */
+.resume-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Experience entries */
+.experience-entry {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.experience-entry:last-child {
+    border-bottom: none;
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.experience-title {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.experience-company {
+    color: var(--secondary);
+}
+
+.experience-date {
+    color: var(--secondary);
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+/* Skills */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skill-tag {
+    background: var(--light-gray);
+    color: var(--text);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+/* Lists */
+ul {
+    list-style-position: inside;
+    padding-left: 1rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+/* Links */
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--secondary);
+    font-size: 0.9rem;
+}
+
+/* Print styles */
+@media print {
+    body {
+        background: white;
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    header {
+        background: none;
+        color: var(--primary);
+        padding: 1rem 0;
+    }
+
+    main {
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .download-section,
+    .preview-section,
+    footer {
+        display: none;
+    }
+
+    a {
+        color: var(--text);
+    }
+
+    @page {
+        margin: 0.5in;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    header {
+        padding: 2rem 1rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    main {
+        padding: 1.5rem;
+    }
+
+    .experience-header {
+        flex-direction: column;
+    }
+
+    .preview-section iframe {
+        height: 500px;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary: #90cdf4;
+        --secondary: #a0aec0;
+        --accent: #63b3ed;
+        --text: #e2e8f0;
+        --background: #1a202c;
+        --light-gray: #2d3748;
+        --border: #4a5568;
+    }
+
+    body {
+        background-color: #171923;
+    }
+
+    header {
+        background: linear-gradient(135deg, #2d3748 0%, #1a365d 100%);
+    }
+}

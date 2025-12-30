@@ -1,0 +1,43 @@
+%% theme.sty - Modern Theme
+%% Contemporary dark accents with sans-serif typography
+
+%% Color palette
+\definecolor{primary}{HTML}{1F2937}      % Charcoal
+\definecolor{secondary}{HTML}{6B7280}    % Gray
+\definecolor{accent}{HTML}{3B82F6}       % Bright blue
+\definecolor{text}{HTML}{111827}         % Near black
+\definecolor{lightgray}{HTML}{F3F4F6}    % Light gray
+\definecolor{highlight}{HTML}{DBEAFE}    % Light blue highlight
+
+%% Typography - modern sans-serif
+\RequirePackage[sfdefault]{roboto}
+
+%% Section styling - bold with accent bar
+\titleformat{\section}{
+    \Large\bfseries\color{primary}\sffamily
+}{}{0em}{}[{\color{accent}\rule{\textwidth}{2pt}}]
+\titlespacing*{\section}{0pt}{16pt}{10pt}
+
+%% Hyperlink styling
+\hypersetup{
+    colorlinks=true,
+    linkcolor=accent,
+    urlcolor=accent
+}
+
+%% Tighter margins for modern look
+\geometry{margin=0.5in}
+
+%% Custom header styling for modern theme
+\renewcommand{\name}[1]{
+    {\fontsize{28}{34}\selectfont\bfseries\color{primary}#1}
+}
+
+\renewcommand{\tagline}[1]{
+    {\large\color{accent}#1}
+}
+
+%% Modern skill category with pills effect
+\renewcommand{\skillcategory}[2]{
+    {\bfseries\color{primary}#1:} {\color{secondary}#2} \\[4pt]
+}

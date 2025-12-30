@@ -1,0 +1,38 @@
+%% resume.tex - Main Resume Document
+%% Author: Azeez
+%% To compile: pdflatex resume.tex
+
+\documentclass{resume}
+
+%% Load theme (options: classic, modern, minimal)
+%% Comment out to use default styling
+% \loadtheme{classic}
+% \loadtheme{modern}
+% \loadtheme{minimal}
+
+%% Enable ATS mode for applicant tracking systems (uncomment if needed)
+% \enableatsmode
+
+\begin{document}
+
+%% ===== HEADER =====
+\input{sections/header}
+
+\vspace{8pt}
+
+%% ===== PROFESSIONAL SUMMARY =====
+\input{sections/summary}
+
+%% ===== EXPERIENCE =====
+\input{sections/experience}
+
+%% ===== EDUCATION =====
+\input{sections/education}
+
+%% ===== SKILLS =====
+\input{sections/skills}
+
+%% ===== PROJECTS =====
+\input{sections/projects}
+
+\end{document}

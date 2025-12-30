@@ -1,0 +1,110 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX - Default
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: src
+          root_file: resume.tex
+          args: -pdf -interaction=nonstopmode -output-directory=../output
+
+      - name: Install Pandoc
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc
+
+      - name: Generate HTML
+        run: |
+          pandoc src/resume.tex \
+            --standalone \
+            --metadata title="Resume" \
+            --css="style.css" \
+            -o output/index.html || echo "Basic HTML generation"
+
+      - name: Copy CSS and assets
+        run: |
+          cp html/style.css output/
+          cp output/resume.pdf output/ 2>/dev/null || true
+
+      - name: Create download page
+        run: |
+          cat > output/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Resume</title>
+              <link rel="stylesheet" href="style.css">
+          </head>
+          <body>
+              <div class="container">
+                  <header>
+                      <h1>Resume</h1>
+                      <p>Professional Resume - Multiple Formats Available</p>
+                  </header>
+
+                  <main>
+                      <section class="download-section">
+                          <h2>Download Resume</h2>
+                          <div class="download-buttons">
+                              <a href="resume.pdf" class="btn btn-primary" download>
+                                  Download PDF
+                              </a>
+                          </div>
+                      </section>
+
+                      <section class="preview-section">
+                          <h2>Preview</h2>
+                          <iframe src="resume.pdf" width="100%" height="800px"></iframe>
+                      </section>
+                  </main>
+
+                  <footer>
+                      <p>Built with LaTeX | Automated with GitHub Actions</p>
+                  </footer>
+              </div>
+          </body>
+          </html>
+          EOF
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: output
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

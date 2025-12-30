@@ -1,0 +1,77 @@
+name: Build Resume
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX - Default
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: src
+          root_file: resume.tex
+          args: -pdf -interaction=nonstopmode -output-directory=../output
+
+      - name: Compile LaTeX - Classic Theme
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: src
+          root_file: resume.tex
+          args: -pdf -interaction=nonstopmode -output-directory=../output -jobname=resume-classic
+          pre_compile: |
+            sed -i 's|% \\loadtheme{classic}|\\loadtheme{classic}|' resume.tex
+
+      - name: Compile LaTeX - Modern Theme
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: src
+          root_file: resume.tex
+          args: -pdf -interaction=nonstopmode -output-directory=../output -jobname=resume-modern
+          pre_compile: |
+            sed -i 's|\\loadtheme{classic}|% \\loadtheme{classic}|' resume.tex
+            sed -i 's|% \\loadtheme{modern}|\\loadtheme{modern}|' resume.tex
+
+      - name: Compile LaTeX - Minimal Theme
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: src
+          root_file: resume.tex
+          args: -pdf -interaction=nonstopmode -output-directory=../output -jobname=resume-minimal
+          pre_compile: |
+            sed -i 's|\\loadtheme{modern}|% \\loadtheme{modern}|' resume.tex
+            sed -i 's|% \\loadtheme{minimal}|\\loadtheme{minimal}|' resume.tex
+
+      - name: Compile LaTeX - ATS Optimized
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: src
+          root_file: resume.tex
+          args: -pdf -interaction=nonstopmode -output-directory=../output -jobname=resume-ats
+          pre_compile: |
+            sed -i 's|% \\enableatsmode|\\enableatsmode|' resume.tex
+
+      - name: Upload PDF artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: resume-pdfs
+          path: output/*.pdf
+          retention-days: 30
+
+      - name: Commit PDFs to repository
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add output/*.pdf
+          git diff --staged --quiet || git commit -m "Auto-build: Update resume PDFs"
+          git push
