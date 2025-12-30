@@ -1,38 +1,45 @@
-%% experience.tex - Work Experience Section
+%% experience.tex - Open Source Contributions
 
-\section{Experience}
+\section{Open Source Contributions}
 
 \experience
-    {Senior Software Engineer}
-    {Company Name}
-    {City, State}
-    {Jan 2022 -- Present}
+    {Open Source Contributor}
+    {Sourcemeta Core (JSON Schema Library)}
+    {Remote}
+    {Nov 2025}
     {
-        \item Led development of microservices architecture serving 1M+ daily active users
-        \item Reduced API response time by 40\% through database optimization and caching strategies
-        \item Mentored team of 5 junior developers, conducting code reviews and technical training
-        \item Implemented CI/CD pipelines reducing deployment time from hours to minutes
+        \item Replaced hash map-based vocabulary lookups with bitset-based approach, achieving O(1) lookups for 29 JSON Schema vocabularies (\href{https://github.com/sourcemeta/core/pull/2040}{PR \#2040})
+        \item Designed hybrid data structure with unordered\_map fallback for custom vocabularies, maintaining backward compatibility
+        \item Refactored 19 files across walker, bundle, and alterschema modules (497 additions, 129 deletions)
     }
 
 \experience
-    {Software Engineer}
-    {Previous Company}
-    {City, State}
-    {Jun 2019 -- Dec 2021}
+    {Open Source Contributor}
+    {Cilium (CNCF Graduated Project)}
+    {Remote}
+    {Apr 2025 -- Present}
     {
-        \item Developed and maintained RESTful APIs using Node.js and Python
-        \item Built responsive web applications with React and TypeScript
-        \item Collaborated with product team to define technical requirements and timelines
-        \item Wrote comprehensive unit and integration tests achieving 85\% code coverage
+        \item Fixed Gateway API reconciler crash when TLSRoute CRD is absent (\href{https://github.com/cilium/cilium/pull/38874}{PR \#38874})
+        \item Resolved routing misconfiguration by implementing proper Group and Kind validation for parentRef matching (\href{https://github.com/cilium/cilium/pull/39275}{PR \#39275})
+        \item Authored egressDeny policy documentation, backported across v1.16--v1.18 branches (\href{https://github.com/cilium/cilium/pull/40272}{PR \#40272})
     }
 
 \experience
-    {Junior Developer}
-    {First Company}
-    {City, State}
-    {Aug 2017 -- May 2019}
+    {Open Source Contributor}
+    {CoreDNS (CNCF Graduated Project)}
+    {Remote}
+    {Jul 2025 -- Present}
     {
-        \item Contributed to full-stack development of e-commerce platform
-        \item Participated in agile ceremonies and sprint planning
-        \item Resolved production bugs and implemented feature enhancements
+        \item Fixed SRV record case handling to comply with RFC 6763 for proper mDNS/DNS-SD service discovery (\href{https://github.com/coredns/coredns/pull/7402}{PR \#7402})
+        \item Corrected TXT record comparison logic per RFC 1035, merged into v1.12.3 (\href{https://github.com/coredns/coredns/pull/7413}{PR \#7413})
+        \item Eliminated flaky multisocket tests via fresh port allocation and channel-based cleanup (\href{https://github.com/coredns/coredns/pull/7438}{PR \#7438})
+    }
+
+\experience
+    {Open Source Contributor}
+    {Kagent (Kubernetes AI Agent Platform)}
+    {Remote}
+    {Dec 2025}
+    {
+        \item Fixed agent deletion bug by standardizing ID format consistency, eliminating orphaned records (\href{https://github.com/kagent-dev/kagent/pull/1178}{PR \#1178})
     }
