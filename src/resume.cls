@@ -163,7 +163,7 @@
 }
 
 %% Two-column layout helper
-\newenvironment{twocolumn}[1][0.5]
+\newenvironment{sidebyside}[1][0.5]
     {\begin{minipage}[t]{#1\textwidth}}
     {\end{minipage}}
 
