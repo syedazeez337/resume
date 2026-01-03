@@ -1,0 +1,86 @@
+%% coverletter-fastcode.tex - Cover Letter for Fast Code AI
+
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{fontawesome5}
+\usepackage{xcolor}
+\usepackage{parskip}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage[utf8]{inputenc}
+
+\definecolor{primary}{HTML}{2C3E50}
+\definecolor{secondary}{HTML}{7F8C8D}
+\definecolor{accent}{HTML}{3498DB}
+
+\pagestyle{empty}
+\urlstyle{same}
+\setlength{\parskip}{6pt}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=accent,
+    urlcolor=accent
+}
+
+\begin{document}
+
+\begin{center}
+    {\LARGE\bfseries\color{primary}Azeez Alishah Hussain Syed}
+
+    \vspace{2pt}
+    {\color{secondary}Systems-focused Software Engineer}
+
+    \vspace{6pt}
+    {\small
+    \href{mailto:azeezalishah@gmail.com}{\faEnvelope\ azeezalishah@gmail.com} \quad
+    \faPhone\ +91 9491614908 \quad
+    \faMapMarker*\ Hyderabad, India \quad
+    \href{https://linkedin.com/in/azeez-alishah}{\faLinkedin\ azeez-alishah} \quad
+    \href{https://github.com/syedazeez337}{\faGithub\ syedazeez337}
+    }
+\end{center}
+
+\vspace{4pt}
+\hrule
+\vspace{8pt}
+
+\noindent
+\begin{minipage}[t]{0.5\textwidth}
+{\color{secondary}January 3, 2026}
+\end{minipage}%
+\begin{minipage}[t]{0.5\textwidth}
+\raggedleft
+\textbf{Arjun Jain}\\
+Fast Code AI\\
+Remote
+\end{minipage}
+
+\vspace{14pt}
+
+\textbf{Projects I've Built}
+
+\textbf{\href{https://github.com/syedazeez337/purple-ai-sandbox}{Purple AI Sandbox}} -- Secure runtime for untrusted AI agents in Rust. Multi-layer isolation using eBPF packet filtering, seccomp-BPF syscall validation, Linux namespaces, and cgroups v2 resource limits. Ships with pre-built security profiles, async REST API (Tokio/Axum), token auth, and structured JSON audit logging. Built this because I wanted AI agents that can execute code without compromising the host.
+
+\textbf{\href{https://github.com/Brevetest/core}{breveTest}} -- Declarative API testing framework in Java. Define REST tests in \texttt{.breve} config files, zero test code required. Auto-discovers tests during Maven builds, supports all HTTP verbs, integrates into CI/CD pipelines.
+
+\vspace{6pt}
+\textbf{Open Source Contributions (Shipped to Production)}
+
+\begin{itemize}[nosep, leftmargin=*, topsep=2pt]
+    \item \textbf{Cilium}: Fixed Gateway API reconciler crash (PR \#38874), routing misconfiguration fix (PR \#39275), egressDeny docs backported to v1.16--v1.18 (PR \#40272)
+    \item \textbf{CoreDNS}: RFC 6763 SRV record fix (PR \#7402), RFC 1035 TXT comparison fix merged into v1.12.3 (PR \#7413), flaky test elimination (PR \#7438), plugin test framework refactor (PR \#7798)
+    \item \textbf{Sourcemeta Core}: Replaced hash map vocabulary lookups with bitset-based O(1) approach for 29 JSON Schema vocabularies -- 497 additions, 129 deletions across 19 files (PR \#2040)
+    \item \textbf{Kagent}: Fixed agent deletion bug causing orphaned records (PR \#1178)
+\end{itemize}
+
+\vspace{6pt}
+\textbf{Stack}: Go, Rust, C++, TypeScript, Python | Kubernetes, eBPF, Cilium, CoreDNS | Linux internals, performance optimization
+
+\vspace{12pt}
+
+\noindent Sincerely,
+
+\noindent\textbf{Azeez Alishah Hussain Syed}
+
+\end{document}

@@ -1,0 +1,105 @@
+%% coverletter.tex - Automated Cover Letter Template
+%% Usage: pdflatex -jobname=coverletter-company coverletter.tex
+
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{fontawesome5}
+\usepackage{xcolor}
+\usepackage{parskip}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage[utf8]{inputenc}
+
+\definecolor{primary}{HTML}{2C3E50}
+\definecolor{secondary}{HTML}{7F8C8D}
+\definecolor{accent}{HTML}{3498DB}
+
+\pagestyle{empty}
+\urlstyle{same}
+\setlength{\parskip}{6pt}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=accent,
+    urlcolor=accent
+}
+
+%% Template variables - these get substituted by the generator
+\newcommand{\HiringManager}{Hiring Manager}
+\newcommand{\CompanyName}{Company Name}
+\newcommand{\PositionTitle}{Position Title}
+\newcommand{\JobLocation}{Location}
+\newcommand{\CoverLetterDate}{January 1, 2026}
+\newcommand{\CompanyFocus}{building reliable, scalable systems}
+
+\begin{document}
+
+\begin{center}
+    {\LARGE\bfseries\color{primary}Azeez Alishah Hussain Syed}
+
+    \vspace{2pt}
+    {\color{secondary}Systems-focused Software Engineer}
+
+    \vspace{6pt}
+    {\small
+    \href{mailto:azeezalishah@gmail.com}{\faEnvelope\ azeezalishah@gmail.com} \quad
+    \faPhone\ +91 9491614908 \quad
+    \faMapMarker*\ Hyderabad, India \quad
+    \href{https://linkedin.com/in/azeez-alishah}{\faLinkedin\ azeez-alishah} \quad
+    \href{https://github.com/syedazeez337}{\faGithub\ syedazeez337}
+    }
+\end{center}
+
+\vspace{4pt}
+\hrule
+\vspace{8pt}
+
+\noindent
+\begin{minipage}[t]{0.5\textwidth}
+{\color{secondary}\CoverLetterDate}
+\end{minipage}%
+\begin{minipage}[t]{0.5\textwidth}
+\raggedleft
+\textbf{\HiringManager}\\
+\CompanyName\\
+\PositionTitle\\
+\JobLocation
+\end{minipage}
+
+\vspace{12pt}
+
+\textbf{RE: \PositionTitle{} at \CompanyName}
+
+\vspace{6pt}
+
+I am writing to express my strong interest in the \PositionTitle{} position at \CompanyName. With my background in Go, Rust, Kubernetes, and eBPF and a proven track record of delivering impactful solutions in cloud-native infrastructure and systems programming, I am excited about the opportunity to contribute to your team.
+
+As a systems-focused software engineer, I have developed deep expertise in cloud-native technologies through my contributions to major CNCF projects including Cilium and CoreDNS. My experience spans performance optimization, cloud-native networking, and security sandboxing across Go, Rust, and C++.
+
+\textbf{Why I'm a Strong Fit}
+
+In my open source work, I have consistently demonstrated the ability to navigate complex codebases and implement RFC-compliant solutions:
+
+\begin{itemize}[nosep, leftmargin=*, topsep=2pt]
+    \item Fixed Gateway API reconciler crash when TLSRoute CRD is absent (Cilium PR \#38874)
+    \item Resolved routing misconfiguration via proper Group and Kind validation (Cilium PR \#39275)
+    \item Fixed SRV record case handling to comply with RFC 6763 for DNS-SD (CoreDNS PR \#7402)
+\end{itemize}
+
+My technical approach combines rigorous problem-solving with practical implementation, as evidenced by my contributions to critical infrastructure projects used by thousands of organizations worldwide.
+
+I am particularly drawn to \CompanyName's focus on \CompanyFocus. I believe my experience with cloud-native technologies, Kubernetes, and eBPF would enable me to contribute meaningfully to your team from day one.
+
+I look forward to discussing how my background in systems engineering and cloud-native technologies aligns with \CompanyName's goals. Thank you for your consideration.
+
+\vspace{12pt}
+
+\noindent Sincerely,
+
+\vspace{6pt}
+
+\noindent\textbf{Azeez Alishah Hussain Syed}
+
+{\small Systems-focused Software Engineer}
+
+\end{document}

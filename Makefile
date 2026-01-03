@@ -1,7 +1,7 @@
 # Makefile for Resume Repository
 # Usage: make [target]
 
-.PHONY: all pdf html docx clean help themes ats
+.PHONY: all pdf html docx clean help themes ats coverletter coverletter-company
 
 # Default target
 all: pdf
@@ -80,22 +80,36 @@ watch:
 	@echo "Watching for changes... (Ctrl+C to stop)"
 	@find src -name "*.tex" | entr -c make pdf
 
+# Generate cover letter
+coverletter:
+	@echo "Generating cover letter..."
+	@python3 scripts/generate_coverletter.py --company "$(COMPANY)" --position "$(POSITION)" --hiring-manager "$(MANAGER)" --location "$(LOCATION)" 2>/dev/null || \
+		echo "Error: Run from project root directory"
+
 # Help
 help:
 	@echo "Resume Makefile Commands:"
 	@echo ""
-	@echo "  make          Build default PDF"
-	@echo "  make pdf      Build default PDF"
-	@echo "  make classic  Build with classic theme"
-	@echo "  make modern   Build with modern theme"
-	@echo "  make minimal  Build with minimal theme"
-	@echo "  make themes   Build all themed PDFs"
-	@echo "  make ats      Build ATS-optimized PDF"
-	@echo "  make html     Build HTML version (requires pandoc)"
-	@echo "  make docx     Build Word document (requires pandoc)"
-	@echo "  make md       Build Markdown version (requires pandoc)"
-	@echo "  make build-all Build all formats and themes"
-	@echo "  make clean    Remove build artifacts"
-	@echo "  make watch    Auto-rebuild on file changes (requires entr)"
+	@echo "  make               Build default PDF"
+	@echo "  make pdf           Build default PDF"
+	@echo "  make classic       Build with classic theme"
+	@echo "  make modern        Build with modern theme"
+	@echo "  make minimal       Build with minimal theme"
+	@echo "  make themes        Build all themed PDFs"
+	@echo "  make ats           Build ATS-optimized PDF"
+	@echo "  make html          Build HTML version (requires pandoc)"
+	@echo "  make docx          Build Word document (requires pandoc)"
+	@echo "  make md            Build Markdown version (requires pandoc)"
+	@echo "  make build-all     Build all formats and themes"
+	@echo "  make clean         Remove build artifacts"
+	@echo "  make watch         Auto-rebuild on file changes (requires entr)"
+	@echo ""
+	@echo "Cover Letter Commands:"
+	@echo "  make coverletter COMPANY=<name> POSITION=<title> [MANAGER=<name>]"
+	@echo "      Generate cover letter for a specific company"
+	@echo ""
+	@echo "Examples:"
+	@echo "  make coverletter COMPANY=Google POSITION=\"Senior SWE\""
+	@echo "  make coverletter COMPANY=Stripe POSITION=Engineer MANAGER=\"Jane Doe\""
 	@echo ""
 	@echo "Output files are placed in the output/ directory"
