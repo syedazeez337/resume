@@ -23,37 +23,41 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Compile LaTeX
+      - name: Make script executable
+        run: chmod +x scripts/build-themes.sh
+
+      - name: Compile All Themes
         uses: xu-cheng/latex-action@v3
         with:
           working_directory: src
           root_file: resume.tex
-          # -pdf ensures latexmk is used (handling bibtex/refs automatically)
-          # -file-line-error helps with debugging
-          # -interaction=nonstopmode prevents hanging on errors
-          args: -pdf -file-line-error -interaction=nonstopmode -output-directory=../output
+          compiler: bash
+          args: ../scripts/build-themes.sh
 
       - name: Verify PDF Generation
         run: |
-          if [ ! -f "output/resume.pdf" ]; then
-            echo "::error::PDF file not generated!"
-            exit 1
-          fi
-          
-          FILE_SIZE=$(stat -c%s "output/resume.pdf")
-          if [ "$FILE_SIZE" -lt 1000 ]; then
-            echo "::error::PDF file is too small ($FILE_SIZE bytes), likely corrupted."
-            exit 1
-          fi
-          echo "PDF generated successfully ($FILE_SIZE bytes)."
+          for theme in minimal classic modern; do
+            FILE="output/Azeez_resume_${theme}.pdf"
+            if [ ! -f "$FILE" ]; then
+              echo "::error::PDF file $FILE not generated!"
+              exit 1
+            fi
+            
+            FILE_SIZE=$(stat -c%s "$FILE")
+            if [ "$FILE_SIZE" -lt 1000 ]; then
+              echo "::error::PDF file $FILE is too small ($FILE_SIZE bytes)."
+              exit 1
+            fi
+            echo "✔ Verified $FILE ($FILE_SIZE bytes)"
+          done
 
       - name: Prepare Website
         run: |
-          # Rename the PDF to match the HTML link
-          mv output/resume.pdf output/Azeez_resume.pdf
-          
           # Copy the custom website files to the output directory
           cp -r html/* output/
+          
+          # Set the default resume (Minimal/ATS) as the main download
+          cp output/Azeez_resume_minimal.pdf output/Azeez_resume.pdf
           
           # Verify the final artifact structure
           ls -R output/

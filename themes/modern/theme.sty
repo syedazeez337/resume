@@ -1,44 +1,50 @@
-%% theme.sty - Modern Theme
-%% Contemporary dark accents with sans-serif typography
+%% theme.sty - Modern Theme (Tech/Startup)
+%% Goal: Clean, airy, visual appeal
 
-%% Color palette
-\definecolor{primary}{HTML}{1F2937}      % Charcoal
-\definecolor{secondary}{HTML}{6B7280}    % Gray
-\definecolor{accent}{HTML}{3B82F6}       % Bright blue
-\definecolor{text}{HTML}{111827}         % Near black
-\definecolor{lightgray}{HTML}{F3F4F6}    % Light gray
-\definecolor{highlight}{HTML}{DBEAFE}    % Light blue highlight
-
-%% Typography - modern sans-serif
+%% Font: Latin Modern Sans (Reliable sans-serif in TeX Live)
 \RequirePackage{lmodern}
 \renewcommand{\familydefault}{\sfdefault}
 
-%% Section styling - bold with accent bar
-\titleformat{\section}{
-    \Large\bfseries\color{primary}\sffamily
-}{}{0em}{}[{\color{accent}\rule{\textwidth}{2pt}}]
-\titlespacing*{\section}{0pt}{16pt}{10pt}
+%% Colors: Vibrancy
+\definecolor{primary}{HTML}{2563EB}      % Bright Blue
+\definecolor{secondary}{HTML}{64748B}    % Cool Gray
+\definecolor{accent}{HTML}{0EA5E9}       % Sky Blue
+\definecolor{text}{HTML}{0F172A}         % Rich Black
 
-%% Hyperlink styling
-\hypersetup{
-    colorlinks=true,
-    linkcolor=accent,
-    urlcolor=accent
-}
-
-%% Tighter margins for modern look
-\geometry{margin=0.5in}
-
-%% Custom header styling for modern theme
+%% Header: Centered, clean
 \renewcommand{\name}[1]{
-    {\fontsize{28}{34}\selectfont\bfseries\color{primary}#1}
+    {\Huge\bfseries\color{primary}#1}
 }
 
 \renewcommand{\tagline}[1]{
-    {\large\color{accent}#1}
+    {\Large\color{secondary}#1}
 }
 
-%% Modern skill category with pills effect
+%% Icons: Use FontAwesome5 colored icons
+\renewcommand{\email}[1]{\href{mailto:#1}{\color{accent}\faEnvelope\ \color{text}#1}}
+\renewcommand{\phone}[1]{\color{accent}\faPhone\ \color{text}#1}
+\renewcommand{\location}[1]{\color{accent}\faMapMarker*\ \color{text}#1}
+\renewcommand{\linkedin}[1]{\href{https://linkedin.com/in/#1}{\color{accent}\faLinkedin\ \color{text}#1}}
+\renewcommand{\github}[1]{\href{https://github.com/#1}{\color{accent}\faGithub\ \color{text}#1}}
+
+%% Sections: Modern look, no rule, just spacing and color
+\titleformat{\section}{
+    \Large\bfseries\color{primary}
+}{}{0em}{}
+\titlespacing*{\section}{0pt}{16pt}{8pt}
+
+%% Experience: Slight indentation, bullet styling
+\renewcommand{\experience}[5]{
+    \subsection[#1]{#1}
+    {\large\textbf{#2}} \hfill \color{primary}\textbf{#3} \\
+    {\small\color{secondary}\faCalendar\ #4}
+    \begin{itemize}[leftmargin=*, label=\textcolor{accent}{\faAngleRight}, nosep, topsep=6pt]
+        #5
+    \end{itemize}
+}
+
+%% Skills: Tags style (visual only, simulated with boxes if needed, but keeping text for safety)
 \renewcommand{\skillcategory}[2]{
-    {\bfseries\color{primary}#1:} {\color{secondary}#2} \\[4pt]
+    \textbf{\color{primary}#1} \\
+    {\color{secondary}#2} \[6pt]
 }

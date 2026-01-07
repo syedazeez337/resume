@@ -282,24 +282,42 @@ section h2 i {
 
 .download-buttons {
     margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
 }
 
-.btn-primary {
-    background: white;
-    color: var(--primary);
-    padding: 0.75rem 2rem;
+.btn {
+    padding: 0.75rem 1.5rem;
     border-radius: 6px;
     text-decoration: none;
     font-weight: 700;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    transition: transform 0.2s;
+    transition: transform 0.2s, background-color 0.2s;
+    font-size: 0.95rem;
 }
 
-.btn-primary:hover {
+.btn-primary {
+    background: white;
+    color: var(--primary);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.3);
 }
 
 /* Footer */
@@ -324,5 +342,9 @@ footer {
         flex-direction: column;
         gap: 0.5rem;
         align-items: center;
+    }
+    
+    .download-buttons {
+        flex-direction: column;
     }
 }

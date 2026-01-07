@@ -1,55 +1,54 @@
-%% theme.sty - Minimal Theme
-%% Clean grayscale design, ATS-optimized
+%% theme.sty - Minimal Theme (ATS Optimized)
+%% Goal: Maximum machine readability, zero "fluff"
 
-%% Color palette - grayscale only for ATS compatibility
-\definecolor{primary}{HTML}{000000}      % Pure black
-\definecolor{secondary}{HTML}{4B5563}    % Medium gray
-\definecolor{accent}{HTML}{374151}       % Dark gray
-\definecolor{text}{HTML}{1F2937}         % Near black
-\definecolor{lightgray}{HTML}{F9FAFB}    % Very light gray
-
-%% Typography - standard fonts for ATS
 \RequirePackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
 
-%% Section styling - clean and simple
-\titleformat{\section}{
-    \large\bfseries\color{primary}\scshape
-}{}{0em}{}[\titlerule]
-\titlespacing*{\section}{0pt}{14pt}{8pt}
+%% Colors: Strictly Black & White
+\definecolor{primary}{HTML}{000000}
+\definecolor{secondary}{HTML}{000000}
+\definecolor{accent}{HTML}{000000}
+\definecolor{text}{HTML}{000000}
 
-%% Disable colored links for ATS
-\hypersetup{
-    colorlinks=false,
-    pdfborder={0 0 0}
-}
-
-%% Standard margins
-\geometry{margin=0.75in}
-
-%% Minimal header styling
+%% Header: Simple centered text
 \renewcommand{\name}[1]{
-    {\LARGE\bfseries #1}
+    {\LARGE\bfseries\MakeUppercase{#1}}
 }
 
 \renewcommand{\tagline}[1]{
-    {\normalsize #1}
+    {\large #1}
 }
 
-%% Plain contact info (no icons for ATS)
-\renewcommand{\email}[1]{\href{mailto:#1}{#1}}
+%% Contact: Plain text, separators
+\renewcommand{\contact}[1]{
+    {\small #1}
+}
+
+%% Icons: Redefine to empty or text equivalents for ATS
+\renewcommand{\email}[1]{#1}
 \renewcommand{\phone}[1]{#1}
 \renewcommand{\location}[1]{#1}
-\renewcommand{\linkedin}[1]{\href{https://linkedin.com/in/#1}{linkedin.com/in/#1}}
-\renewcommand{\github}[1]{\href{https://github.com/#1}{github.com/#1}}
-\renewcommand{\website}[1]{\href{https://#1}{#1}}
+\renewcommand{\linkedin}[1]{linkedin.com/in/#1}
+\renewcommand{\github}[1]{github.com/#1}
+\renewcommand{\website}[1]{#1}
 
-%% Simple skill formatting
-\renewcommand{\skillcategory}[2]{
-    \textbf{#1:} #2 \\[2pt]
+%% Sections: Uppercase, simple underline
+\titleformat{\section}{
+    \large\bfseries\uppercase
+}{}{0em}{}[\hrule]
+\titlespacing*{\section}{0pt}{12pt}{8pt}
+
+%% Experience: Standard bold/italic structure
+\renewcommand{\experience}[5]{
+    \subsection[#1]{#1}
+    \textbf{#2} \hfill #3 \
+    \textit{#4}
+    \begin{itemize}[leftmargin=*, nosep, topsep=2pt]
+        #5
+    \end{itemize}
 }
 
-%% Disable skill bars in minimal theme
-\renewcommand{\skillbar}[2]{
-    #1 \\[2pt]
+%% Skills: Simple list
+\renewcommand{\skillcategory}[2]{
+    \textbf{#1:} #2 \\[2pt]
 }

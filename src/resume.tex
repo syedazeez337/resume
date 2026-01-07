@@ -1,17 +1,18 @@
 %% resume.tex - Main Resume Document
 %% Author: Azeez
-%% To compile: pdflatex resume.tex
+%% To compile: pdflatex "\def\theme{modern} \input{resume.tex}"
 
 \documentclass{resume}
 
-%% Load theme (options: classic, modern, minimal)
-%% Comment out to use default styling
-% \loadtheme{classic}
-% \loadtheme{modern}
-\loadtheme{minimal}
+%% Load theme based on \theme command (default to modern if undefined)
+\ifdefined\theme
+  \loadtheme{\theme}
+\else
+  \loadtheme{modern}
+\fi
 
-%% Enable ATS mode for applicant tracking systems (uncomment if needed)
-\enableatsmode
+%% Enable ATS mode if theme is minimal
+\ifthenelse{\equal{\theme}{minimal}}{\enableatsmode}{}
 
 \begin{document}
 
