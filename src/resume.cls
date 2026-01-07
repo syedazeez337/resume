@@ -84,7 +84,7 @@
 \newcommand{\education}[5]{
     \textbf{#1} \hfill \textit{#4} \\
     #2, #3
-    \ifthenelse{\equal{#5}{}}{}{
+    \ifstrempty{#5}{}{
         \begin{itemize}[leftmargin=*, nosep, topsep=2pt]
             #5
         \end{itemize}

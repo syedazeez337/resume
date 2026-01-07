@@ -17,80 +17,57 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Compile LaTeX - Default
+      - name: Lint LaTeX
         uses: xu-cheng/latex-action@v3
         with:
           working_directory: src
           root_file: resume.tex
-          args: -pdf -interaction=nonstopmode -output-directory=../output
+          # Run chktex to find common errors, but don't fail the build on warnings (exit 0)
+          # We just want to see the output in the logs.
+          # -q = quiet, -n22 = ignore warning 22 (comment in label), etc.
+          # Just running basic check here.
+          args: -chktex -interaction=nonstopmode
 
-      - name: Install Pandoc
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: src
+          root_file: resume.tex
+          # -pdf ensures latexmk is used (handling bibtex/refs automatically)
+          # -file-line-error helps with debugging
+          # -interaction=nonstopmode prevents hanging on errors
+          args: -pdf -file-line-error -interaction=nonstopmode -output-directory=../output
+
+      - name: Verify PDF Generation
         run: |
-          sudo apt-get update
-          sudo apt-get install -y pandoc
+          if [ ! -f "output/resume.pdf" ]; then
+            echo "::error::PDF file not generated!"
+            exit 1
+          fi
+          
+          FILE_SIZE=$(stat -c%s "output/resume.pdf")
+          if [ "$FILE_SIZE" -lt 1000 ]; then
+            echo "::error::PDF file is too small ($FILE_SIZE bytes), likely corrupted."
+            exit 1
+          fi
+          echo "PDF generated successfully ($FILE_SIZE bytes)."
 
-      - name: Generate HTML
+      - name: Prepare Website
         run: |
-          pandoc src/resume.tex \
-            --standalone \
-            --metadata title="Resume" \
-            --css="style.css" \
-            -o output/index.html || echo "Basic HTML generation"
-
-      - name: Fix output permissions
-        run: sudo chown -R $USER:$USER output/
-
-      - name: Copy CSS and assets
-        run: |
-          cp html/style.css output/
-          cp output/resume.pdf output/ 2>/dev/null || true
-
-      - name: Create download page
-        run: |
-          cat > output/index.html << 'EOF'
-          <!DOCTYPE html>
-          <html lang="en">
-          <head>
-              <meta charset="UTF-8">
-              <meta name="viewport" content="width=device-width, initial-scale=1.0">
-              <title>Resume</title>
-              <link rel="stylesheet" href="style.css">
-          </head>
-          <body>
-              <div class="container">
-                  <header>
-                      <h1>Resume</h1>
-                      <p>Professional Resume - Multiple Formats Available</p>
-                  </header>
-
-                  <main>
-                      <section class="download-section">
-                          <h2>Download Resume</h2>
-                          <div class="download-buttons">
-                              <a href="resume.pdf" class="btn btn-primary" download>
-                                  Download PDF
-                              </a>
-                          </div>
-                      </section>
-
-                      <section class="preview-section">
-                          <h2>Preview</h2>
-                          <iframe src="resume.pdf" width="100%" height="800px"></iframe>
-                      </section>
-                  </main>
-
-                  <footer>
-                      <p>Built with LaTeX | Automated with GitHub Actions</p>
-                  </footer>
-              </div>
-          </body>
-          </html>
-          EOF
+          # Rename the PDF to match the HTML link
+          mv output/resume.pdf output/Azeez_resume.pdf
+          
+          # Copy the custom website files to the output directory
+          cp -r html/* output/
+          
+          # Verify the final artifact structure
+          ls -R output/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

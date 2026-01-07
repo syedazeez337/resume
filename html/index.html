@@ -3,72 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional Resume">
-    <title>Resume | Your Name</title>
+    <meta name="description" content="Azeez Alishah Hussain Syed - Systems Software Engineer Portfolio">
+    <title>Azeez Alishah Hussain Syed | Systems Software Engineer</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Your Name</h1>
-            <p>Software Engineer | Full Stack Developer</p>
+            <h1>Azeez Alishah Hussain Syed</h1>
+            <p>Systems Software Engineer | CNCF Contributor (Cilium, CoreDNS)</p>
+            <div class="social-links">
+                <a href="https://github.com/syedazeez337" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://linkedin.com/in/syedazeez337" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="mailto:azeez@example.com"><i class="fas fa-envelope"></i> Email</a>
+            </div>
         </header>
 
         <main>
-            <section class="download-section">
-                <h2>Download Resume</h2>
-                <p>Available in multiple formats and themes</p>
-                <div class="download-buttons">
-                    <a href="../output/resume.pdf" class="btn btn-primary" download>
-                        PDF (Default)
-                    </a>
-                    <a href="../output/resume-classic.pdf" class="btn btn-secondary" download>
-                        Classic Theme
-                    </a>
-                    <a href="../output/resume-modern.pdf" class="btn btn-secondary" download>
-                        Modern Theme
-                    </a>
-                    <a href="../output/resume-minimal.pdf" class="btn btn-secondary" download>
-                        Minimal Theme
-                    </a>
-                    <a href="../output/resume-ats.pdf" class="btn btn-secondary" download>
-                        ATS Optimized
-                    </a>
+            <section class="summary-section">
+                <h2>Professional Summary</h2>
+                <p>
+                    Systems Software Engineer specializing in cloud-native technologies, eBPF, and Kubernetes.
+                    Proven open source contributor to CNCF graduated projects (Cilium, CoreDNS) with a focus on
+                    networking protocols, security, and low-level systems programming in Go and Rust.
+                </p>
+            </section>
+
+            <section class="contributions-section">
+                <h2><i class="fas fa-code-branch"></i> Open Source Contributions</h2>
+                
+                <div class="project-group">
+                    <h3>Cilium (CNCF Graduated Project)</h3>
+                    <div class="contribution-card">
+                        <div class="contribution-header">
+                            <span class="pr-badge"><i class="fas fa-code-commit"></i> PR #38874</span>
+                            <span class="date">Apr 2025</span>
+                        </div>
+                        <p>Fixed Gateway API reconciler crash when TLSRoute CRD is absent, preventing production deployment failures.</p>
+                        <a href="https://github.com/cilium/cilium/pull/38874" target="_blank" class="pr-link">View Pull Request <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="contribution-card">
+                        <div class="contribution-header">
+                            <span class="pr-badge"><i class="fas fa-code-commit"></i> PR #39275</span>
+                        </div>
+                        <p>Resolved routing misconfiguration by implementing Group and Kind validation for parentRef matching per Gateway API specification.</p>
+                        <a href="https://github.com/cilium/cilium/pull/39275" target="_blank" class="pr-link">View Pull Request <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="contribution-card">
+                        <div class="contribution-header">
+                            <span class="pr-badge"><i class="fas fa-code-commit"></i> PR #40272</span>
+                        </div>
+                        <p>Authored egressDeny policy documentation, backported across v1.16–v1.18 branches.</p>
+                        <a href="https://github.com/cilium/cilium/pull/40272" target="_blank" class="pr-link">View Pull Request <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-group">
+                    <h3>CoreDNS (CNCF Graduated Project)</h3>
+                    <div class="contribution-card">
+                        <div class="contribution-header">
+                            <span class="pr-badge"><i class="fas fa-code-commit"></i> PR #7402</span>
+                            <span class="date">Jul 2025</span>
+                        </div>
+                        <p>Fixed SRV record case handling to comply with RFC 6763 for proper mDNS/DNS-SD service discovery.</p>
+                        <a href="https://github.com/coredns/coredns/pull/7402" target="_blank" class="pr-link">View Pull Request <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="contribution-card">
+                        <div class="contribution-header">
+                            <span class="pr-badge"><i class="fas fa-code-commit"></i> PR #7413</span>
+                        </div>
+                        <p>Corrected TXT record comparison logic per RFC 1035, merged into v1.12.3.</p>
+                        <a href="https://github.com/coredns/coredns/pull/7413" target="_blank" class="pr-link">View Pull Request <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="contribution-card">
+                        <div class="contribution-header">
+                            <span class="pr-badge"><i class="fas fa-code-commit"></i> PR #7438</span>
+                        </div>
+                        <p>Eliminated flaky multisocket tests via fresh port allocation and channel-based cleanup.</p>
+                        <a href="https://github.com/coredns/coredns/pull/7438" target="_blank" class="pr-link">View Pull Request <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-group">
+                    <h3>CoreDNS Plugins</h3>
+                    <div class="contribution-card">
+                        <div class="contribution-header">
+                            <span class="pr-badge"><i class="fas fa-code-commit"></i> PR #7798</span>
+                            <span class="date">2024</span>
+                        </div>
+                        <p>Refactored plugin test framework for improved maintainability and test isolation.</p>
+                        <a href="https://github.com/coredns/coredns/pull/7798" target="_blank" class="pr-link">View Pull Request <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="contribution-card">
+                        <div class="contribution-header">
+                            <span class="pr-badge"><i class="fas fa-code-commit"></i> PR #7799</span>
+                        </div>
+                        <p>Enhanced monitoring endpoints for better observability and debugging.</p>
+                        <a href="https://github.com/coredns/coredns/pull/7799" target="_blank" class="pr-link">View Pull Request <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-group">
+                    <h3>Sourcemeta Core</h3>
+                    <div class="contribution-card">
+                        <div class="contribution-header">
+                            <span class="pr-badge"><i class="fas fa-code-commit"></i> PR #2040</span>
+                            <span class="date">Nov 2025</span>
+                        </div>
+                        <p>Replaced hash map-based vocabulary lookups with bitset-based approach, achieving O(1) lookups for 29 JSON Schema vocabularies.</p>
+                        <a href="https://github.com/sourcemeta/core/pull/2040" target="_blank" class="pr-link">View Pull Request <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-group">
+                    <h3>Kagent</h3>
+                    <div class="contribution-card">
+                        <div class="contribution-header">
+                            <span class="pr-badge"><i class="fas fa-code-commit"></i> PR #1178</span>
+                            <span class="date">Dec 2025</span>
+                        </div>
+                        <p>Fixed agent deletion bug by standardizing ID format consistency, eliminating orphaned records.</p>
+                        <a href="https://github.com/kagent-dev/kagent/pull/1178" target="_blank" class="pr-link">View Pull Request <i class="fas fa-external-link-alt"></i></a>
+                    </div>
                 </div>
             </section>
 
-            <section class="preview-section">
-                <h2>Preview</h2>
-                <iframe src="../output/resume.pdf" width="100%" height="800px" title="Resume Preview">
-                    Your browser does not support PDF preview.
-                    <a href="../output/resume.pdf">Download the PDF</a> instead.
-                </iframe>
+            <section class="projects-section">
+                <h2><i class="fas fa-laptop-code"></i> Technical Projects</h2>
+                
+                <div class="project-card">
+                    <h3>Purple AI Sandbox</h3>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Rust</span>
+                        <span class="tech-tag">eBPF</span>
+                        <span class="tech-tag">Seccomp BPF</span>
+                        <span class="tech-tag">Linux Namespaces</span>
+                        <span class="tech-tag">Tokio</span>
+                    </div>
+                    <p>
+                        Secure runtime for untrusted AI agents with multi-layer defense: eBPF packet filtering, syscall validation,
+                        and resource enforcement. Features pre-built security profiles, REST API with auth, and JSON audit logging.
+                    </p>
+                    <a href="https://github.com/syedazeez337/purple-ai-sandbox" target="_blank" class="btn btn-outline">View on GitHub</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>breveTest</h3>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">Maven</span>
+                        <span class="tech-tag">REST APIs</span>
+                    </div>
+                    <p>
+                        Declarative API testing framework enabling REST testing without code. Tests defined via .breve config files
+                        with automatic discovery during Maven builds. Supports all HTTP verbs and CI/CD integration.
+                    </p>
+                    <a href="https://github.com/Brevetest/core" target="_blank" class="btn btn-outline">View on GitHub</a>
+                </div>
             </section>
 
-            <section class="resume-content">
-                <h2>About</h2>
-                <p>
-                    This resume is built with LaTeX and automatically compiled using GitHub Actions.
-                    Multiple themes are available for different contexts - from traditional corporate
-                    applications to modern tech companies.
-                </p>
+            <section class="skills-section">
+                <h2><i class="fas fa-tools"></i> Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Languages</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">Go</span>
+                            <span class="skill-tag">Rust</span>
+                            <span class="skill-tag">C</span>
+                            <span class="skill-tag">C++</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">TypeScript</span>
+                            <span class="skill-tag">Java</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Cloud Native</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">Kubernetes</span>
+                            <span class="skill-tag">Cilium</span>
+                            <span class="skill-tag">Gateway API</span>
+                            <span class="skill-tag">eBPF</span>
+                            <span class="skill-tag">Service Mesh</span>
+                            <span class="skill-tag">Cgroups v2</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Systems</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">Operating Systems</span>
+                            <span class="skill-tag">Multi-threading</span>
+                            <span class="skill-tag">TCP/IP</span>
+                            <span class="skill-tag">Memory Management</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-                <h3>Features</h3>
-                <ul>
-                    <li><strong>Multiple Themes:</strong> Classic, Modern, and Minimal styles</li>
-                    <li><strong>ATS Optimized:</strong> Version designed to pass Applicant Tracking Systems</li>
-                    <li><strong>Auto-Build:</strong> PDFs automatically generated on every commit</li>
-                    <li><strong>Version Control:</strong> Full history of resume changes</li>
-                </ul>
+            <section class="education-section">
+                <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+                <div class="education-card">
+                    <h3>Master of Computer Applications (MCA)</h3>
+                    <p class="institution">Andhra University, Visakhapatnam, India</p>
+                    <p class="date">2024</p>
+                    <p>Focus: Distributed Systems, Algorithms, Data Structures, Operating Systems</p>
+                </div>
+            </section>
+
+            <section class="download-section">
+                <h2>Download Resume</h2>
+                <div class="download-buttons">
+                    <a href="Azeez_resume.pdf" class="btn btn-primary" download>
+                        <i class="fas fa-file-pdf"></i> Download PDF
+                    </a>
+                </div>
             </section>
         </main>
 
         <footer>
-            <p>
-                Built with LaTeX |
-                Automated with GitHub Actions |
-                <a href="https://github.com/yourusername/resume">View Source</a>
-            </p>
+            <p>&copy; 2026 Azeez Alishah Hussain Syed. Built with HTML/CSS.</p>
         </footer>
     </div>
 </body>

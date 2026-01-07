@@ -4,24 +4,16 @@
 
 \experience
 {Open Source Contributor}
-{Sourcemeta Core (JSON Schema Library)}
-{Remote}
-{Nov 2025}
-{
-\item Replaced hash map-based vocabulary lookups with bitset-based approach, achieving O(1) lookups for 29 JSON Schema vocabularies (\href{https://github.com/sourcemeta/core/pull/2040}{PR \#2040})
-\item Designed hybrid data structure with unordered\_map fallback for custom vocabularies, maintaining backward compatibility
-\item Refactored 19 files across walker, bundle, and alterschema modules (497 additions, 129 deletions)
-}
-
-\experience
-{Open Source Contributor}
 {Cilium (CNCF Graduated Project)}
 {Remote}
 {Apr 2025 -- Present}
 {
-\item Fixed Gateway API reconciler crash when TLSRoute CRD is absent (\href{https://github.com/cilium/cilium/pull/38874}{PR \#38874})
-\item Resolved routing misconfiguration by implementing proper Group and Kind validation for parentRef matching (\href{https://github.com/cilium/cilium/pull/39275}{PR \#39275})
-\item Authored egressDeny policy documentation, backported across v1.16--v1.18 branches (\href{https://github.com/cilium/cilium/pull/40272}{PR \#40272})
+\item Fixed Gateway API reconciler crash when TLSRoute CRD is absent, preventing
+      production deployment failures (\href{https://github.com/cilium/cilium/pull/38874}{PR \#38874})
+\item Resolved routing misconfiguration by implementing Group and Kind validation
+      for parentRef matching per Gateway API specification (\href{https://github.com/cilium/cilium/pull/39275}{PR \#39275})
+\item Authored egressDeny policy documentation, backported across v1.16--v1.18 branches
+      (\href{https://github.com/cilium/cilium/pull/40272}{PR \#40272})
 }
 
 \experience
@@ -30,11 +22,36 @@
 {Remote}
 {Jul 2025 -- Present}
 {
-\item Fixed SRV record case handling to comply with RFC 6763 for proper mDNS/DNS-SD service discovery (\href{https://github.com/coredns/coredns/pull/7402}{PR \#7402})
-\item Corrected TXT record comparison logic per RFC 1035, merged into v1.12.3 (\href{https://github.com/coredns/coredns/pull/7413}{PR \#7413})
-\item Eliminated flaky multisocket tests via fresh port allocation and channel-based cleanup (\href{https://github.com/coredns/coredns/pull/7438}{PR \#7438})
-\item Refactored plugin test framework for improved maintainability and test isolation (\href{https://github.com/coredns/coredns/pull/7798}{PR \#7798})
-\item Enhanced monitoring endpoints for better observability and debugging (\href{https://github.com/coredns/coredns/pull/7799}{PR \#7799})
+\item Fixed SRV record case handling to comply with RFC 6763 for proper mDNS/DNS-SD
+      service discovery (\href{https://github.com/coredns/coredns/pull/7402}{PR \#7402})
+\item Corrected TXT record comparison logic per RFC 1035, merged into v1.12.3
+      (\href{https://github.com/coredns/coredns/pull/7413}{PR \#7413})
+\item Eliminated flaky multisocket tests via fresh port allocation and channel-based
+      cleanup (\href{https://github.com/coredns/coredns/pull/7438}{PR \#7438})
+}
+
+\experience
+{Open Source Contributor}
+{CoreDNS Plugins}
+{Remote}
+{2024 -- Present}
+{
+\item Refactored plugin test framework for improved maintainability and test isolation
+      (\href{https://github.com/coredns/coredns/pull/7798}{PR \#7798})
+\item Enhanced monitoring endpoints for better observability and debugging
+      (\href{https://github.com/coredns/coredns/pull/7799}{PR \#7799})
+}
+
+\experience
+{Open Source Contributor}
+{Sourcemeta Core (JSON Schema Library)}
+{Remote}
+{Nov 2025}
+{
+\item Replaced hash map-based vocabulary lookups with bitset-based approach, achieving
+      O(1) lookups for 29 JSON Schema vocabularies (\href{https://github.com/sourcemeta/core/pull/2040}{PR \#2040})
+\item Designed hybrid data structure with unordered\_map fallback for custom vocabularies,
+      maintaining backward compatibility
 }
 
 \experience
@@ -43,5 +60,6 @@
 {Remote}
 {Dec 2025}
 {
-\item Fixed agent deletion bug by standardizing ID format consistency, eliminating orphaned records (\href{https://github.com/kagent-dev/kagent/pull/1178}{PR \#1178})
+\item Fixed agent deletion bug by standardizing ID format consistency, eliminating
+      orphaned records (\href{https://github.com/kagent-dev/kagent/pull/1178}{PR \#1178})
 }
