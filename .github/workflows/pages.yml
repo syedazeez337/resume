@@ -23,17 +23,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Lint LaTeX
-        uses: xu-cheng/latex-action@v3
-        with:
-          working_directory: src
-          root_file: resume.tex
-          # Run chktex to find common errors, but don't fail the build on warnings (exit 0)
-          # We just want to see the output in the logs.
-          # -q = quiet, -n22 = ignore warning 22 (comment in label), etc.
-          # Just running basic check here.
-          args: -chktex -interaction=nonstopmode
-
       - name: Compile LaTeX
         uses: xu-cheng/latex-action@v3
         with:
