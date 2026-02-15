@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Azeez Alishah Hussain Syed - Systems Software Engineer Portfolio">
-    <title>Azeez Alishah Hussain Syed | Systems Software Engineer</title>
+    <meta name="description" content="Azeez Alishah Hussain Syed - Software Engineer | Open Source Contributor to CNCF Projects">
+    <title>Azeez Alishah Hussain Syed | Software Engineer</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -12,11 +12,11 @@
     <div class="container">
         <header>
             <h1>Azeez Alishah Hussain Syed</h1>
-            <p>Systems Software Engineer | CNCF Contributor (Cilium, CoreDNS)</p>
+            <p>Software Engineer | Open Source Contributor</p>
             <div class="social-links">
                 <a href="https://github.com/syedazeez337" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                <a href="https://linkedin.com/in/syedazeez337" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <a href="mailto:azeez@example.com"><i class="fas fa-envelope"></i> Email</a>
+                <a href="https://linkedin.com/in/azeez-alishah" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="mailto:azeezalishah@gmail.com"><i class="fas fa-envelope"></i> Email</a>
             </div>
         </header>
 
@@ -24,43 +24,18 @@
             <section class="summary-section">
                 <h2>Professional Summary</h2>
                 <p>
-                    Systems Software Engineer specializing in cloud-native technologies, eBPF, and Kubernetes.
-                    Proven open source contributor to CNCF graduated projects (Cilium, CoreDNS) with a focus on
-                    networking protocols, security, and low-level systems programming in Go and Rust.
+                    Open source contributor with 19 merged PRs across 10 external projects, including 3 CNCF
+                    graduated/incubating projects (CoreDNS, Cilium, Strimzi). Contributions span bug fixes,
+                    security hardening, performance optimization, and observability, primarily in Go and C++.
+                    Focused on cloud-native infrastructure, Kubernetes operators, and networking protocols.
                 </p>
             </section>
 
             <section class="contributions-section">
-                <h2><i class="fas fa-code-branch"></i> Open Source Contributions</h2>
-                
-                <div class="project-group">
-                    <h3>Cilium (CNCF Graduated Project)</h3>
-                    <div class="contribution-card">
-                        <div class="contribution-header">
-                            <span class="pr-badge"><i class="fas fa-code-commit"></i> PR #38874</span>
-                            <span class="date">Apr 2025</span>
-                        </div>
-                        <p>Fixed Gateway API reconciler crash when TLSRoute CRD is absent, preventing production deployment failures.</p>
-                        <a href="https://github.com/cilium/cilium/pull/38874" target="_blank" class="pr-link">View Pull Request <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                    <div class="contribution-card">
-                        <div class="contribution-header">
-                            <span class="pr-badge"><i class="fas fa-code-commit"></i> PR #39275</span>
-                        </div>
-                        <p>Resolved routing misconfiguration by implementing Group and Kind validation for parentRef matching per Gateway API specification.</p>
-                        <a href="https://github.com/cilium/cilium/pull/39275" target="_blank" class="pr-link">View Pull Request <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                    <div class="contribution-card">
-                        <div class="contribution-header">
-                            <span class="pr-badge"><i class="fas fa-code-commit"></i> PR #40272</span>
-                        </div>
-                        <p>Authored egressDeny policy documentation, backported across v1.16–v1.18 branches.</p>
-                        <a href="https://github.com/cilium/cilium/pull/40272" target="_blank" class="pr-link">View Pull Request <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
+                <h2><i class="fas fa-code-branch"></i> Open Source Experience</h2>
 
                 <div class="project-group">
-                    <h3>CoreDNS (CNCF Graduated Project)</h3>
+                    <h3>CoreDNS (CNCF Graduated)</h3>
                     <div class="contribution-card">
                         <div class="contribution-header">
                             <span class="pr-badge"><i class="fas fa-code-commit"></i> PR #7402</span>
@@ -72,6 +47,7 @@
                     <div class="contribution-card">
                         <div class="contribution-header">
                             <span class="pr-badge"><i class="fas fa-code-commit"></i> PR #7413</span>
+                            <span class="date">Jul 2025</span>
                         </div>
                         <p>Corrected TXT record comparison logic per RFC 1035, merged into v1.12.3.</p>
                         <a href="https://github.com/coredns/coredns/pull/7413" target="_blank" class="pr-link">View Pull Request <i class="fas fa-external-link-alt"></i></a>
@@ -79,40 +55,94 @@
                     <div class="contribution-card">
                         <div class="contribution-header">
                             <span class="pr-badge"><i class="fas fa-code-commit"></i> PR #7438</span>
+                            <span class="date">Aug 2025</span>
                         </div>
                         <p>Eliminated flaky multisocket tests via fresh port allocation and channel-based cleanup.</p>
                         <a href="https://github.com/coredns/coredns/pull/7438" target="_blank" class="pr-link">View Pull Request <i class="fas fa-external-link-alt"></i></a>
                     </div>
-                </div>
-
-                <div class="project-group">
-                    <h3>CoreDNS Plugins</h3>
                     <div class="contribution-card">
                         <div class="contribution-header">
                             <span class="pr-badge"><i class="fas fa-code-commit"></i> PR #7798</span>
-                            <span class="date">2024</span>
+                            <span class="date">Jan 2026</span>
                         </div>
-                        <p>Refactored plugin test framework for improved maintainability and test isolation.</p>
+                        <p>Hardened ready, pprof, and health plugins against slowloris attacks by adding server timeouts per gosec G114.</p>
                         <a href="https://github.com/coredns/coredns/pull/7798" target="_blank" class="pr-link">View Pull Request <i class="fas fa-external-link-alt"></i></a>
                     </div>
                     <div class="contribution-card">
                         <div class="contribution-header">
                             <span class="pr-badge"><i class="fas fa-code-commit"></i> PR #7799</span>
+                            <span class="date">Jan 2026</span>
                         </div>
-                        <p>Enhanced monitoring endpoints for better observability and debugging.</p>
+                        <p>Resolved integer overflow warnings across 26 files by adding bounded gosec G115 suppressions.</p>
                         <a href="https://github.com/coredns/coredns/pull/7799" target="_blank" class="pr-link">View Pull Request <i class="fas fa-external-link-alt"></i></a>
                     </div>
                 </div>
 
                 <div class="project-group">
-                    <h3>Sourcemeta Core</h3>
+                    <h3>Cilium (CNCF Graduated)</h3>
                     <div class="contribution-card">
                         <div class="contribution-header">
-                            <span class="pr-badge"><i class="fas fa-code-commit"></i> PR #2040</span>
-                            <span class="date">Nov 2025</span>
+                            <span class="pr-badge"><i class="fas fa-code-commit"></i> PR #38874</span>
+                            <span class="date">Apr 2025</span>
                         </div>
-                        <p>Replaced hash map-based vocabulary lookups with bitset-based approach, achieving O(1) lookups for 29 JSON Schema vocabularies.</p>
-                        <a href="https://github.com/sourcemeta/core/pull/2040" target="_blank" class="pr-link">View Pull Request <i class="fas fa-external-link-alt"></i></a>
+                        <p>Fixed Gateway API reconciler crash when TLSRoute CRD is absent, preventing production deployment failures. Backported to v1.17.</p>
+                        <a href="https://github.com/cilium/cilium/pull/38874" target="_blank" class="pr-link">View Pull Request <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="contribution-card">
+                        <div class="contribution-header">
+                            <span class="pr-badge"><i class="fas fa-code-commit"></i> PR #39275</span>
+                            <span class="date">May 2025</span>
+                        </div>
+                        <p>Resolved routing misconfiguration by implementing Group and Kind validation for parentRef matching per Gateway API specification.</p>
+                        <a href="https://github.com/cilium/cilium/pull/39275" target="_blank" class="pr-link">View Pull Request <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="contribution-card">
+                        <div class="contribution-header">
+                            <span class="pr-badge"><i class="fas fa-code-commit"></i> PR #40272</span>
+                            <span class="date">Jul 2025</span>
+                        </div>
+                        <p>Authored egressDeny network policy documentation with real-world examples, backported across v1.16-v1.18.</p>
+                        <a href="https://github.com/cilium/cilium/pull/40272" target="_blank" class="pr-link">View Pull Request <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-group">
+                    <h3>Strimzi (CNCF Incubating)</h3>
+                    <div class="contribution-card">
+                        <div class="contribution-header">
+                            <span class="pr-badge"><i class="fas fa-code-commit"></i> PR #12277</span>
+                            <span class="date">Jan 2026</span>
+                        </div>
+                        <p>Separated MirrorMaker 2 metrics from Kafka Connect defaults, fixing incorrect connector metric exposure.</p>
+                        <a href="https://github.com/strimzi/strimzi-kafka-operator/pull/12277" target="_blank" class="pr-link">View Pull Request <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="contribution-card">
+                        <div class="contribution-header">
+                            <span class="pr-badge"><i class="fas fa-code-commit"></i> PR #12281</span>
+                            <span class="date">Jan 2026</span>
+                        </div>
+                        <p>Added KafkaNodePool resource counter metric and overrode reconcileThese() for accurate node pool counting.</p>
+                        <a href="https://github.com/strimzi/strimzi-kafka-operator/pull/12281" target="_blank" class="pr-link">View Pull Request <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-group">
+                    <h3>Kamaji</h3>
+                    <div class="contribution-card">
+                        <div class="contribution-header">
+                            <span class="pr-badge"><i class="fas fa-code-commit"></i> PR #1043</span>
+                            <span class="date">Jan 2026</span>
+                        </div>
+                        <p>Added unique controller names to prevent Prometheus metric label conflicts across soot managers.</p>
+                        <a href="https://github.com/clastix/kamaji/pull/1043" target="_blank" class="pr-link">View Pull Request <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="contribution-card">
+                        <div class="contribution-header">
+                            <span class="pr-badge"><i class="fas fa-code-commit"></i> PR #1044</span>
+                            <span class="date">Jan 2026</span>
+                        </div>
+                        <p>Removed conflicting k8s.io/apiserver dependency that broke controller-runtime workqueue metrics initialization.</p>
+                        <a href="https://github.com/clastix/kamaji/pull/1044" target="_blank" class="pr-link">View Pull Request <i class="fas fa-external-link-alt"></i></a>
                     </div>
                 </div>
 
@@ -123,15 +153,83 @@
                             <span class="pr-badge"><i class="fas fa-code-commit"></i> PR #1178</span>
                             <span class="date">Dec 2025</span>
                         </div>
-                        <p>Fixed agent deletion bug by standardizing ID format consistency, eliminating orphaned records.</p>
+                        <p>Fixed agent deletion bug by standardizing ID format consistency between controller operations.</p>
                         <a href="https://github.com/kagent-dev/kagent/pull/1178" target="_blank" class="pr-link">View Pull Request <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="contribution-card">
+                        <div class="contribution-header">
+                            <span class="pr-badge"><i class="fas fa-code-commit"></i> PR #1195</span>
+                            <span class="date">Jan 2026</span>
+                        </div>
+                        <p>Fixed Helm chart to support custom release names by setting KAGENT_CONTROLLER_NAME dynamically.</p>
+                        <a href="https://github.com/kagent-dev/kagent/pull/1195" target="_blank" class="pr-link">View Pull Request <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-group">
+                    <h3>Aqua Trivy</h3>
+                    <div class="contribution-card">
+                        <div class="contribution-header">
+                            <span class="pr-badge"><i class="fas fa-code-commit"></i> PR #514</span>
+                            <span class="date">Jan 2026</span>
+                        </div>
+                        <p>Refined RBAC misconfiguration check (AVD-KSV-0050) to flag only critical verbs, reducing false positives on standard CRUD operations.</p>
+                        <a href="https://github.com/aquasecurity/trivy-checks/pull/514" target="_blank" class="pr-link">View Pull Request <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-group">
+                    <h3>Sourcemeta Core</h3>
+                    <div class="contribution-card">
+                        <div class="contribution-header">
+                            <span class="pr-badge"><i class="fas fa-code-commit"></i> PR #2040</span>
+                            <span class="date">Nov 2025</span>
+                        </div>
+                        <p>Replaced hash map-based vocabulary lookups with bitset-based O(1) approach across 19 files, with unordered_map fallback for custom vocabularies.</p>
+                        <a href="https://github.com/sourcemeta/core/pull/2040" target="_blank" class="pr-link">View Pull Request <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-group">
+                    <h3>Fluvio</h3>
+                    <div class="contribution-card">
+                        <div class="contribution-header">
+                            <span class="pr-badge"><i class="fas fa-code-commit"></i> PR #4626</span>
+                            <span class="date">Jan 2026</span>
+                        </div>
+                        <p>Fixed duplicate source field in Topic CRD schema that broke ArgoCD server-side apply.</p>
+                        <a href="https://github.com/fluvio-community/fluvio/pull/4626" target="_blank" class="pr-link">View Pull Request <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-group">
+                    <h3>Yardstick</h3>
+                    <div class="contribution-card">
+                        <div class="contribution-header">
+                            <span class="pr-badge"><i class="fas fa-code-commit"></i> PR #55</span>
+                            <span class="date">Dec 2025</span>
+                        </div>
+                        <p>Replaced TRANSPORT env var with MCP_TRANSPORT for ToolHive compatibility across 5 files.</p>
+                        <a href="https://github.com/StacklokLabs/yardstick/pull/55" target="_blank" class="pr-link">View Pull Request <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-group">
+                    <h3>go-exhaustruct</h3>
+                    <div class="contribution-card">
+                        <div class="contribution-header">
+                            <span class="pr-badge"><i class="fas fa-code-commit"></i> PR #117</span>
+                            <span class="date">Jun 2025</span>
+                        </div>
+                        <p>Added structured GitHub bug report issue template with auto-labeling and validation.</p>
+                        <a href="https://github.com/GaijinEntertainment/go-exhaustruct/pull/117" target="_blank" class="pr-link">View Pull Request <i class="fas fa-external-link-alt"></i></a>
                     </div>
                 </div>
             </section>
 
             <section class="projects-section">
                 <h2><i class="fas fa-laptop-code"></i> Technical Projects</h2>
-                
+
                 <div class="project-card">
                     <h3>Purple AI Sandbox</h3>
                     <div class="tech-stack">
@@ -139,43 +237,40 @@
                         <span class="tech-tag">eBPF</span>
                         <span class="tech-tag">Seccomp BPF</span>
                         <span class="tech-tag">Linux Namespaces</span>
+                        <span class="tech-tag">Cgroups v2</span>
                         <span class="tech-tag">Tokio</span>
+                        <span class="tech-tag">Axum</span>
                     </div>
                     <p>
-                        Secure runtime for untrusted AI agents with multi-layer defense: eBPF packet filtering, syscall validation,
-                        and resource enforcement. Features pre-built security profiles, REST API with auth, and JSON audit logging.
+                        Secure runtime for untrusted AI agents with multi-layer defense: eBPF packet filtering,
+                        syscall validation, and resource enforcement. Features pre-built security profiles,
+                        REST API with auth, and JSON audit logging.
                     </p>
                     <a href="https://github.com/syedazeez337/purple-ai-sandbox" target="_blank" class="btn btn-outline">View on GitHub</a>
                 </div>
 
                 <div class="project-card">
-                    <h3>breveTest</h3>
+                    <h3>BTE (Behavioral Testing Engine)</h3>
                     <div class="tech-stack">
-                        <span class="tech-tag">Java</span>
-                        <span class="tech-tag">Maven</span>
-                        <span class="tech-tag">REST APIs</span>
+                        <span class="tech-tag">Rust</span>
                     </div>
                     <p>
-                        Declarative API testing framework enabling REST testing without code. Tests defined via .breve config files
-                        with automatic discovery during Maven builds. Supports all HTTP verbs and CI/CD integration.
+                        Deterministic testing engine for CLI/TUI applications. Spawns real processes in a PTY,
+                        sends input, captures output, and verifies behavior. Tests defined declaratively in YAML
+                        with seed-based reproducible execution.
                     </p>
-                    <a href="https://github.com/Brevetest/core" target="_blank" class="btn btn-outline">View on GitHub</a>
+                    <a href="https://github.com/syedazeez337/bte" target="_blank" class="btn btn-outline">View on GitHub</a>
                 </div>
             </section>
 
             <section class="skills-section">
-                <h2><i class="fas fa-tools"></i> Technical Skills</h2>
+                <h2><i class="fas fa-tools"></i> Skills</h2>
                 <div class="skills-grid">
                     <div class="skill-category">
                         <h3>Languages</h3>
                         <div class="skills-list">
                             <span class="skill-tag">Go</span>
-                            <span class="skill-tag">Rust</span>
-                            <span class="skill-tag">C</span>
                             <span class="skill-tag">C++</span>
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">TypeScript</span>
-                            <span class="skill-tag">Java</span>
                         </div>
                     </div>
                     <div class="skill-category">
@@ -183,19 +278,29 @@
                         <div class="skills-list">
                             <span class="skill-tag">Kubernetes</span>
                             <span class="skill-tag">Cilium</span>
+                            <span class="skill-tag">CoreDNS</span>
                             <span class="skill-tag">Gateway API</span>
-                            <span class="skill-tag">eBPF</span>
-                            <span class="skill-tag">Service Mesh</span>
-                            <span class="skill-tag">Cgroups v2</span>
+                            <span class="skill-tag">Helm</span>
+                            <span class="skill-tag">DNS Protocol</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Observability</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">Prometheus</span>
+                            <span class="skill-tag">Kafka/Strimzi</span>
+                            <span class="skill-tag">Grafana</span>
                         </div>
                     </div>
                     <div class="skill-category">
                         <h3>Systems</h3>
                         <div class="skills-list">
-                            <span class="skill-tag">Operating Systems</span>
-                            <span class="skill-tag">Multi-threading</span>
+                            <span class="skill-tag">Linux</span>
                             <span class="skill-tag">TCP/IP</span>
-                            <span class="skill-tag">Memory Management</span>
+                            <span class="skill-tag">DNS</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">GitHub Actions</span>
+                            <span class="skill-tag">Docker</span>
                         </div>
                     </div>
                 </div>
@@ -207,7 +312,6 @@
                     <h3>Master of Computer Applications (MCA)</h3>
                     <p class="institution">Andhra University, Visakhapatnam, India</p>
                     <p class="date">2024</p>
-                    <p>Focus: Distributed Systems, Algorithms, Data Structures, Operating Systems</p>
                 </div>
             </section>
 
@@ -228,7 +332,7 @@
         </main>
 
         <footer>
-            <p>&copy; 2026 Azeez Alishah Hussain Syed. Built with HTML/CSS.</p>
+            <p>&copy; 2026 Azeez Alishah Hussain Syed</p>
         </footer>
     </div>
 </body>
