@@ -35,12 +35,10 @@ themes:
 # Build ATS-optimized version
 ats:
 	@echo "Building ATS-optimized PDF..."
-	@cd src && sed 's|% \\enableatsmode|\\enableatsmode|' resume.tex > resume_ats.tex
-	@cd src && sed -i 's|% \\loadtheme{minimal}|\\loadtheme{minimal}|' resume_ats.tex
-	@cd src && pdflatex -interaction=nonstopmode -output-directory=../output resume_ats.tex > /dev/null
-	@cd src && pdflatex -interaction=nonstopmode -output-directory=../output resume_ats.tex > /dev/null
-	@mv output/resume_ats.pdf output/resume-ats.pdf
-	@rm -f src/resume_ats.tex output/*.aux output/*.log output/*.out
+	@cd src && pdflatex -interaction=nonstopmode -output-directory=../output "\def\theme{minimal} \input{resume.tex}" > /dev/null
+	@cd src && pdflatex -interaction=nonstopmode -output-directory=../output "\def\theme{minimal} \input{resume.tex}" > /dev/null
+	@cp output/resume.pdf output/resume-ats.pdf
+	@rm -f output/*.aux output/*.log output/*.out
 	@echo "Created: output/resume-ats.pdf"
 
 # Build HTML version (requires pandoc)

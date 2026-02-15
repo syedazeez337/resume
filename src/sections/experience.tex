@@ -1,26 +1,11 @@
-%% experience.tex - Open Source Contributions
+%% experience.tex - Open Source Experience
 
-\section{Open Source Contributions}
+\section{Open Source Experience}
 
-\experience
-{Open Source Contributor}
-{Cilium (CNCF Graduated Project)}
-{Remote}
-{Apr 2025 -- Present}
-{
-\item Fixed Gateway API reconciler crash when TLSRoute CRD is absent, preventing
-      production deployment failures (\href{https://github.com/cilium/cilium/pull/38874}{PR \#38874})
-\item Resolved routing misconfiguration by implementing Group and Kind validation
-      for parentRef matching per Gateway API specification (\href{https://github.com/cilium/cilium/pull/39275}{PR \#39275})
-\item Authored egressDeny policy documentation, backported across v1.16--v1.18 branches
-      (\href{https://github.com/cilium/cilium/pull/40272}{PR \#40272})
-}
-
-\experience
-{Open Source Contributor}
-{CoreDNS (CNCF Graduated Project)}
-{Remote}
-{Jul 2025 -- Present}
+\ossproject
+{CoreDNS (CNCF Graduated)}
+{DNS server powering service discovery in every Kubernetes cluster}
+{Jul 2025 -- Jan 2026}
 {
 \item Fixed SRV record case handling to comply with RFC 6763 for proper mDNS/DNS-SD
       service discovery (\href{https://github.com/coredns/coredns/pull/7402}{PR \#7402})
@@ -28,38 +13,95 @@
       (\href{https://github.com/coredns/coredns/pull/7413}{PR \#7413})
 \item Eliminated flaky multisocket tests via fresh port allocation and channel-based
       cleanup (\href{https://github.com/coredns/coredns/pull/7438}{PR \#7438})
+\item Hardened ready, pprof, and health plugins against slowloris attacks by adding
+      server timeouts per gosec G114 (\href{https://github.com/coredns/coredns/pull/7798}{PR \#7798})
+\item Resolved integer overflow warnings across 26 files by adding bounded gosec G115
+      suppressions (\href{https://github.com/coredns/coredns/pull/7799}{PR \#7799})
 }
 
-\experience
-{Open Source Contributor}
-{CoreDNS Plugins}
-{Remote}
-{2024 -- Present}
+\ossproject
+{Cilium (CNCF Graduated)}
+{eBPF-based networking, security, and observability for Kubernetes}
+{Apr -- Jul 2025}
 {
-\item Refactored plugin test framework for improved maintainability and test isolation
-      (\href{https://github.com/coredns/coredns/pull/7798}{PR \#7798})
-\item Enhanced monitoring endpoints for better observability and debugging
-      (\href{https://github.com/coredns/coredns/pull/7799}{PR \#7799})
+\item Fixed Gateway API reconciler crash when TLSRoute CRD is absent, preventing
+      production deployment failures; backported to v1.17 (\href{https://github.com/cilium/cilium/pull/38874}{PR \#38874})
+\item Resolved routing misconfiguration by implementing Group and Kind validation
+      for parentRef matching per Gateway API specification (\href{https://github.com/cilium/cilium/pull/39275}{PR \#39275})
+\item Authored egressDeny network policy documentation with real-world examples,
+      backported across v1.16--v1.18 (\href{https://github.com/cilium/cilium/pull/40272}{PR \#40272})
 }
 
-\experience
-{Open Source Contributor}
-{Sourcemeta Core (JSON Schema Library)}
-{Remote}
+\ossproject
+{Strimzi (CNCF Incubating)}
+{Kafka on Kubernetes via operators and custom resources}
+{Jan 2026}
+{
+\item Separated MirrorMaker 2 metrics from Kafka Connect defaults, fixing incorrect
+      connector metric exposure (\href{https://github.com/strimzi/strimzi-kafka-operator/pull/12277}{PR \#12277})
+\item Added KafkaNodePool resource counter metric and overrode reconcileThese() for
+      accurate node pool counting (\href{https://github.com/strimzi/strimzi-kafka-operator/pull/12281}{PR \#12281})
+}
+
+\ossproject
+{Kamaji}
+{Kubernetes control plane manager for multi-tenant clusters}
+{Jan 2026}
+{
+\item Added unique controller names to prevent Prometheus metric label conflicts across
+      soot managers (\href{https://github.com/clastix/kamaji/pull/1043}{PR \#1043})
+\item Removed conflicting k8s.io/apiserver dependency that broke controller-runtime
+      workqueue metrics initialization (\href{https://github.com/clastix/kamaji/pull/1044}{PR \#1044})
+}
+
+\ossproject
+{Kagent}
+{Kubernetes-native AI agent platform}
+{Dec 2025 -- Jan 2026}
+{
+\item Fixed agent deletion bug by standardizing ID format consistency between controller
+      operations (\href{https://github.com/kagent-dev/kagent/pull/1178}{PR \#1178})
+\item Fixed Helm chart to support custom release names by setting KAGENT\_CONTROLLER\_NAME
+      dynamically (\href{https://github.com/kagent-dev/kagent/pull/1195}{PR \#1195})
+}
+
+\ossprojectsingle
+{Aqua Trivy}
+{Cloud-native security scanner for vulnerabilities, misconfigurations, and secrets}
+{Jan 2026}
+{Refined RBAC misconfiguration check (AVD-KSV-0050) to flag only critical verbs---escalate,
+bind, impersonate---reducing false positives on standard CRUD operations
+(\href{https://github.com/aquasecurity/trivy-checks/pull/514}{PR \#514})}
+
+\pagebreak
+
+\ossproject
+{Sourcemeta Core}
+{High-performance C++ JSON Schema implementation}
 {Nov 2025}
 {
-\item Replaced hash map-based vocabulary lookups with bitset-based approach, achieving
-      O(1) lookups for 29 JSON Schema vocabularies (\href{https://github.com/sourcemeta/core/pull/2040}{PR \#2040})
-\item Designed hybrid data structure with unordered\_map fallback for custom vocabularies,
-      maintaining backward compatibility
+\item Replaced hash map-based vocabulary lookups with bitset-based O(1) approach across
+      19 files, with unordered\_map fallback for custom vocabularies
+      (\href{https://github.com/sourcemeta/core/pull/2040}{PR \#2040})
 }
 
-\experience
-{Open Source Contributor}
-{Kagent (Kubernetes AI Agent Platform)}
-{Remote}
+\ossprojectsingle
+{Fluvio}
+{Distributed streaming platform built in Rust}
+{Jan 2026}
+{Fixed duplicate source field in Topic CRD schema that broke ArgoCD server-side apply
+(\href{https://github.com/fluvio-community/fluvio/pull/4626}{PR \#4626})}
+
+\ossprojectsingle
+{Yardstick}
+{MCP security benchmarking tool by Stacklok}
 {Dec 2025}
-{
-\item Fixed agent deletion bug by standardizing ID format consistency, eliminating
-      orphaned records (\href{https://github.com/kagent-dev/kagent/pull/1178}{PR \#1178})
-}
+{Replaced TRANSPORT env var with MCP\_TRANSPORT for ToolHive compatibility across 5 files
+(\href{https://github.com/StacklokLabs/yardstick/pull/55}{PR \#55})}
+
+\ossprojectsingle
+{go-exhaustruct}
+{Go linter enforcing exhaustive struct initialization}
+{Jun 2025}
+{Added structured GitHub bug report issue template with auto-labeling and validation
+(\href{https://github.com/GaijinEntertainment/go-exhaustruct/pull/117}{PR \#117})}

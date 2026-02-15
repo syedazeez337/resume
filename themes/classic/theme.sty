@@ -29,7 +29,7 @@
 \titleformat{\section}{
     \Large\bfseries\color{primary}
 }{}{0em}{}[\color{accent}\titlerule]
-\titlespacing*{\section}{0pt}{14pt}{8pt}
+\titlespacing*{\section}{0pt}{8pt}{4pt}
 
 %% Subsections
 \titleformat{\subsection}{
@@ -44,4 +44,22 @@
     \begin{itemize}[leftmargin=*, nosep, topsep=4pt]
         #5
     \end{itemize}
+}
+
+%% OSS Project block: serif style, italic dates
+\renewcommand{\ossproject}[4]{%
+    \textbf{#1} \hfill \textit{#3} \\
+    {\small\itshape\color{secondary}#2}
+    \begin{itemize}[leftmargin=*, nosep, topsep=1pt]
+        #4
+    \end{itemize}
+    \vspace{2pt}
+}
+
+%% OSS Single-line project: classic style
+\renewcommand{\ossprojectsingle}[4]{%
+    \textbf{#1} \hfill \textit{#3} \\
+    {\small\itshape\color{secondary}#2} \\[1pt]
+    {\small #4}
+    \vspace{2pt}
 }

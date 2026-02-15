@@ -4,12 +4,13 @@
 
 \documentclass{resume}
 
-%% Load theme based on \theme command (default to modern if undefined)
-\ifdefined\theme
-  \loadtheme{\theme}
-\else
-  \loadtheme{modern}
+%% Set default theme if not defined via \def\theme{...}
+\ifdefined\theme\else
+  \def\theme{modern}
 \fi
+
+%% Load theme
+\loadtheme{\theme}
 
 %% Enable ATS mode if theme is minimal
 \ifthenelse{\equal{\theme}{minimal}}{\enableatsmode}{}
@@ -19,7 +20,7 @@
 %% ===== HEADER =====
 \input{sections/header}
 
-\vspace{8pt}
+\vspace{4pt}
 
 %% ===== PROFESSIONAL SUMMARY =====
 \input{sections/summary}

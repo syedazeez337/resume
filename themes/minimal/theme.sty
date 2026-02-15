@@ -36,7 +36,7 @@
 \titleformat{\section}{
     \large\bfseries\uppercase
 }{}{0em}{}[\hrule]
-\titlespacing*{\section}{0pt}{12pt}{8pt}
+\titlespacing*{\section}{0pt}{10pt}{6pt}
 
 %% Experience: Standard bold/italic structure
 \renewcommand{\experience}[5]{
@@ -46,6 +46,24 @@
     \begin{itemize}[leftmargin=*, nosep, topsep=2pt]
         #5
     \end{itemize}
+}
+
+%% OSS Project block: plain text, no icons, all black
+\renewcommand{\ossproject}[4]{%
+    \textbf{#1} \hfill #3 \\
+    {\small #2}
+    \begin{itemize}[leftmargin=*, nosep, topsep=1pt]
+        #4
+    \end{itemize}
+    \vspace{2pt}
+}
+
+%% OSS Single-line project: plain text
+\renewcommand{\ossprojectsingle}[4]{%
+    \textbf{#1} \hfill #3 \\
+    {\small #2} \\[1pt]
+    {\small #4}
+    \vspace{2pt}
 }
 
 %% Skills: Simple list

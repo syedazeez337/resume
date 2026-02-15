@@ -5,9 +5,9 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{resume}[2025/01/01 Professional Resume Class]
 
-\LoadClass[11pt,letterpaper]{article}
+\LoadClass[10pt,letterpaper]{article}
 
-\RequirePackage[margin=0.5in]{geometry}
+\RequirePackage[margin=0.45in, top=0.4in, bottom=0.4in]{geometry}
 \RequirePackage{titlesec}
 \RequirePackage{enumitem}
 \RequirePackage{hyperref}
@@ -30,7 +30,7 @@
     urlcolor=accent,
     pdfborder={0 0 0},
     pdfauthor={Azeez Alishah Hussain Syed},
-    pdftitle={Software Engineer Resume - Azeez Alishah Hussain Syed},
+    pdftitle={Open Source Software Engineer Resume - Azeez Alishah Hussain Syed},
     pdfsubject={Systems-focused Software Engineer with expertise in cloud-native, eBPF, Kubernetes, Cilium, CoreDNS, and open source contributions},
     pdfkeywords={Software Engineer, Go, Rust, Kubernetes, eBPF, Cilium, CoreDNS, Open Source, CNCF, Systems Programming, Cloud Native}
 }
@@ -40,12 +40,12 @@
 \titleformat{\section}{
     \Large\bfseries\color{primary}
 }{}{0em}{}[\titlerule]
-\titlespacing*{\section}{0pt}{12pt}{8pt}
+\titlespacing*{\section}{0pt}{8pt}{4pt}
 
 \titleformat{\subsection}{
     \large\bfseries\color{text}
 }{}{0em}{}
-\titlespacing*{\subsection}{0pt}{8pt}{4pt}
+\titlespacing*{\subsection}{0pt}{6pt}{3pt}
 
 \newcommand{\name}[1]{
     {\Huge\bfseries\color{primary}#1}
@@ -95,17 +95,35 @@
 \newcommand{\project}[3]{
     \textbf{#1} | {\small\color{secondary}#2} \\
     {\small #3}
-    \vspace{4pt}
+    \vspace{2pt}
 }
 
 \newcommand{\projectlink}[4]{
     \textbf{\href{#2}{#1}} | {\small\color{secondary}#3} \\
     {\small #4}
-    \vspace{4pt}
+    \vspace{2pt}
 }
 
 \newcommand{\skillcategory}[2]{
     \textbf{#1:} #2 \\[2pt]
+}
+
+%% OSS project block with context line and bullet list
+\newcommand{\ossproject}[4]{%
+    \textbf{#1} \hfill \textit{#3} \\
+    {\small\color{secondary}#2}
+    \begin{itemize}[leftmargin=*, nosep, topsep=1pt]
+        #4
+    \end{itemize}
+    \vspace{2pt}
+}
+
+%% Single-line OSS project (for 1-PR contributions)
+\newcommand{\ossprojectsingle}[4]{%
+    \textbf{#1} \hfill \textit{#3} \\
+    {\small\color{secondary}#2} \\[1pt]
+    {\small #4}
+    \vspace{2pt}
 }
 
 \newcommand{\skillbar}[2]{

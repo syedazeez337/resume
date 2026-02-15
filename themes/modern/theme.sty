@@ -1,8 +1,8 @@
 %% theme.sty - Modern Theme (Tech/Startup)
 %% Goal: Clean, airy, visual appeal
 
-%% Font: Latin Modern Sans (Reliable sans-serif in TeX Live)
-\RequirePackage{lmodern}
+%% Font: Inter (modern sans-serif)
+\RequirePackage[sfdefault]{inter}
 \renewcommand{\familydefault}{\sfdefault}
 
 %% Colors: Vibrancy
@@ -31,7 +31,7 @@
 \titleformat{\section}{
     \Large\bfseries\color{primary}
 }{}{0em}{}
-\titlespacing*{\section}{0pt}{16pt}{8pt}
+\titlespacing*{\section}{0pt}{8pt}{4pt}
 
 %% Experience: Slight indentation, bullet styling
 \renewcommand{\experience}[5]{
@@ -43,8 +43,26 @@
     \end{itemize}
 }
 
-%% Skills: Tags style (visual only, simulated with boxes if needed, but keeping text for safety)
+%% OSS Project block: colored dates, accent angle-right bullets
+\renewcommand{\ossproject}[4]{%
+    \textbf{#1} \hfill \color{primary}\textbf{#3} \\
+    {\small\color{secondary}#2}
+    \begin{itemize}[leftmargin=*, label=\textcolor{accent}{\faAngleRight}, nosep, topsep=1pt]
+        #4
+    \end{itemize}
+    \vspace{2pt}
+}
+
+%% OSS Single-line project: matching modern style
+\renewcommand{\ossprojectsingle}[4]{%
+    \textbf{#1} \hfill \color{primary}\textbf{#3} \\
+    {\small\color{secondary}#2} \\[1pt]
+    {\small #4}
+    \vspace{2pt}
+}
+
+%% Skills: Tags style
 \renewcommand{\skillcategory}[2]{
     \textbf{\color{primary}#1} \\
-    {\color{secondary}#2} \[6pt]
+    {\color{secondary}#2} \\[6pt]
 }

@@ -1,7 +1,7 @@
 #!/bin/bash
 # build.sh - Build resume PDF with optional theme
 # Usage: ./build.sh [theme]
-# Themes: classic, modern, minimal (default: none)
+# Themes: classic, modern, minimal (default: modern)
 
 set -e
 
@@ -19,28 +19,21 @@ THEME="${1:-}"
 # Navigate to source directory
 cd "$SRC_DIR"
 
-# If theme is specified, create a temporary file with theme loaded
+# If theme is specified, compile with that theme via \def
 if [ -n "$THEME" ]; then
     echo "Building with theme: $THEME"
 
-    # Create a copy of resume.tex with theme enabled
-    sed "s|% \\\\loadtheme{$THEME}|\\\\loadtheme{$THEME}|" resume.tex > resume_themed.tex
-
-    # Compile the themed version
-    pdflatex -interaction=nonstopmode -output-directory="$OUTPUT_DIR" resume_themed.tex
-    pdflatex -interaction=nonstopmode -output-directory="$OUTPUT_DIR" resume_themed.tex
+    pdflatex -interaction=nonstopmode -output-directory="$OUTPUT_DIR" "\def\theme{$THEME} \input{resume.tex}"
+    pdflatex -interaction=nonstopmode -output-directory="$OUTPUT_DIR" "\def\theme{$THEME} \input{resume.tex}"
 
     # Rename output
-    mv "$OUTPUT_DIR/resume_themed.pdf" "$OUTPUT_DIR/resume-$THEME.pdf"
-
-    # Cleanup temporary file
-    rm resume_themed.tex
+    mv "$OUTPUT_DIR/resume.pdf" "$OUTPUT_DIR/resume-$THEME.pdf"
 
     echo "Output: $OUTPUT_DIR/resume-$THEME.pdf"
 else
     echo "Building with default styling"
 
-    # Compile resume
+    # Compile resume (defaults to modern theme)
     pdflatex -interaction=nonstopmode -output-directory="$OUTPUT_DIR" resume.tex
     pdflatex -interaction=nonstopmode -output-directory="$OUTPUT_DIR" resume.tex
 
